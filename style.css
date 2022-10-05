@@ -3,12 +3,14 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 
 html{
     font-size: 10px;
     font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
 }
 
 section {
@@ -19,36 +21,76 @@ section {
 
 /*Navbar*/
 
-nav {
+
+.navbar {
     display: flex;
     align-items: center;
-    justify-content: left;
-    height: 70px;
+    justify-content: right;
+    height: 8vh;
+    padding: 2em;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: white;
 }
 
-nav a {
-    font-size: 2em;
-    padding: 25px 10px;
-    transition: all 0.5s;
+
+.menu-list {
+    list-style-type: none;
+    position: relative;
+    display: flex;
+    width: 55%;
+    justify-content: space-around;
 }
 
-nav a:link,
-nav a:visited {
+.menu-link {
     text-decoration: none;
+    font-size: 2em;
+    position: relative;
+    padding: .2em;
     color: black;
-    height: auto;
 }
 
-nav a:hover,
-nav a:focus {
-    box-shadow: 0px 0px 15px 0px rgba(66, 68, 90, 1);
+.menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: .15em;
+    border-radius: 20px;
+    background-color: black;
+    transition: .3s ease-in-out;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/*Burger*/
+
+
+.burger {
+    background: transparent;
+    border: none;
     outline: none;
-}   
+    cursor: pointer;
+    display: none;
+}
+
+.line {
+    width: 3em;
+    height: .3em;
+    background-color: black;
+    margin: .7em;
+    border-radius: 20px;
+    transition: .3s;
+}
 
 /*First section #intro*/
 
 .first-section {
-    background-color: #242460;
+    background-color: #9898f3;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,6 +100,11 @@ nav a:focus {
     height: 30%;
     width: 30%;
     border-radius: 50%;
+}
+
+.main-logo {
+    width: 70%;
+    margin: 10px;
 }
 
 /*About section*/
@@ -204,4 +251,153 @@ footer {
 footer span {
     font-size: 1em;
     color: gray;
+}
+
+
+/*Media queries*/
+
+@media only screen and (max-width: 1000px) {
+
+    section {
+        min-height: 50vh;
+    }
+
+    /*Menu*/
+
+    .burger {
+        display: block;
+        transition: .3s ease-in-out;
+    }
+
+    .burger.active .line:first-child {
+        transform: rotate(-405deg) translateY(.7em);
+        background-color: white;
+    }
+
+    .burger.active .line:nth-child(2){
+        display: none;
+    }
+
+    .burger.active .line:nth-child(3){
+        transform: rotate(405deg) translateY(-.7em);
+        background-color: white;
+    }
+
+    .navbar {
+        background: transparent;
+    }
+
+    .menu-list {
+        position: absolute;
+        right: 0;
+        top: 0vh;
+        background-color: darkblue;
+        height: 100vh;
+        width: 50vw;
+        flex-direction: column;
+        text-align: center;
+        transform: translate(100%);
+        transition: all .3s ease-in-out;
+    }
+
+    .menu-list.active {
+        transform: translate(0%);
+    }
+
+    .menu-link {
+        color: whitesmoke;
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .menu-link::after {
+        background-color: whitesmoke;
+    }
+
+    /*First section*/
+
+    .first-section {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /*About section*/
+
+    .about-title {
+        font-size: 4em;
+        margin: 10px;
+        padding-top: 1.5em;
+    }
+    
+    #about p {
+        font-size: 2.5em;
+        margin: 10px;
+        line-height: 1.5em;
+    }
+    
+    .cv-download {
+        font-size: 2.5em;
+        margin: 10px;
+        padding: 2.5px;
+    }
+
+    /*Skills section*/
+
+    .skills-list li {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    
+    #skills h2 {
+        font-size: 4em;
+        margin: 10px;
+        padding-top: 1.5em;
+    }
+    
+    .skills-list {
+        margin: 10px;
+    }
+    
+    .skills-list li {
+        margin-top: 1em;
+    }
+    
+    .skills-list span {
+        font-size: 2em;
+        margin-left: 20px;
+    }
+    
+    .skills-icon {
+        height: 3em;
+    }
+
+    /*Contact section*/
+
+    #contact {
+        min-height: 25vh;
+    }
+    
+    #contact h2 {
+        font-size: 4em;
+        margin: 10px;
+        padding-top: 0.5em;
+    }
+    
+    .contact-list {
+        margin: 10px;
+    }
+
+    .contact-list li a:link,
+    .contact-list li a:visited {
+        font-size: 2em;
+        margin: 4px;
+    }
+
+    .contact-icon {
+        width: 3em;
+        height: 3em;
+    }
+    
 }
