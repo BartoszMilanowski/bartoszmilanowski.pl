@@ -293,15 +293,14 @@ footer span {
         top: 0vh;
         background-color: darkblue;
         height: 100vh;
-        width: 50vw;
+        width: 0;
         flex-direction: column;
         text-align: center;
-        transform: translate(100%);
         transition: all .3s ease-in-out;
     }
 
     .menu-list.active {
-        transform: translate(0%);
+        width: 50vw;
     }
 
     .menu-link {
@@ -398,6 +397,80 @@ footer span {
     .contact-icon {
         width: 3em;
         height: 3em;
+    }  
+}
+
+@media only screen and (max-width: 800px){
+
+    /*Menu*/
+    .menu-list.active {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    /*About section*/
+    .about-title {
+        font-size: 3em;
+        line-height: 3em;
+    }
+
+    #about p {
+        font-size: 2em;
+        margin-right: 30px;
+    }
+
+    /*Skills section*/
+
+    #skills h2 {
+        font-size: 3em;
+    }
+
+    .skills-list {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .skills-icon {
+        height: 40px;
+    }
+
+    .skills-list li {
+        width: 100%;
+    }
+
+    .skills-list li span {
+        font-size: 2em;
+        margin-right: 30px;
+    }
+
+    /*Contact section*/
+
+    #contact {
+        min-height: 50vh;
+    }
+
+    .contact-list li {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    section {
+        min-height: 33.3vh;
     }
     
-}
+    /*Contact section*/
+
+    #contact {
+        min-height: 33.3vh;
+    }
+
+    .contact-list {
+        margin: 5px;
+    }
+    
+    .contact-list li {
+        font-size: 9px;
+    }
+}   

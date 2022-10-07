@@ -4,11 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const showMobileNav = () =>  {
 
-    const mobileNav = document.querySelector('.menu-list');
     const burgerIcon = document.querySelector('.burger');
-
+    
     burgerIcon.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
-        burgerIcon.classList.toggle('active');
+        toggleMenu();
     })
+}
+
+const toggleMenu = () => {
+    
+    document.querySelector('.menu-list').classList.toggle('active');
+    document.querySelector('.burger').classList.toggle('active');
 }
