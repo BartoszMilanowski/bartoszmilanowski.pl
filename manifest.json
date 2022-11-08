@@ -1,0 +1,15 @@
+{
+    "name": "Bartosz Milanowski",
+    "short_name" : "BMilanowski",
+    "start_url" : ".",
+    "background_color" : "#9898f3",
+    "theme_color" : "#00008BFF",
+    "display" : "standalone",
+    "icons" : [
+        {
+            "src" : "images/Logo_BM.png",
+            "sizes" : "192x192",
+            "type" : "image/png"
+        }
+    ]
+}
